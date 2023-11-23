@@ -35,5 +35,5 @@ int main(){
 
     printf("Voce acertou na %d tentativa", chutes);
 
-    return 0;  
+    return 0;    
 }
