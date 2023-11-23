@@ -76,5 +76,5 @@ int main(){
     lerResposta(respostas);
     compara(sequencia,respostas);
         
-    return 0;
+    return 0; 
 }

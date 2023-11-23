@@ -75,5 +75,5 @@ int main(){
     else
         printf("\nO bot venceu. Tente novamente!\n");
 
-    return 0;
+    return 0; 
 }
