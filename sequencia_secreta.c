@@ -63,7 +63,7 @@ void compara(int v[], int u[]){
     for(int i=0;i<MAX;i++)
         printf("\t%d", v[i]);
 }
-
+ 
 int main(){
     int sequencia[MAX], respostas[MAX], tempo=10;
 
