@@ -8,7 +8,8 @@ void bancoDePalavras(char *str, char *str2);
 void boasVindas();
 void exibeForca(int vidas);
 void exibeLetrasUsadas(char letrasUsadas[]);
-int verificaPalavra(char palavra[], char letrasUsadas[]);
+void verificaPalavra(char palavra[], char letrasUsadas[]);
+int vencedor(char palavra[], char letrasUsadas[]);
 void jogo();
 
 int main(){
@@ -121,19 +122,24 @@ void exibeLetrasUsadas(char letrasUsadas[]){
     printf("\n");
 }
 
-int verificaPalavra(char palavra[], char letrasUsadas[]){
-    int venceu=1;
-
+void verificaPalavra(char palavra[], char letrasUsadas[]){
     for(int i=0;palavra[i]!='\0';i++){
         if(strchr(letrasUsadas,palavra[i])!=NULL)
             printf("\t%c", palavra[i]);
-        else{
+        else
             printf("\t_");
-            venceu=0;
-        }
     }
 
     printf("\n");
+}
+
+int vencedor(char palavra[], char letrasUsadas[]){
+    int venceu=1;
+
+    for(int i=0;palavra[i]!='\0';i++){
+        if(strchr(letrasUsadas,palavra[i])==NULL)
+            venceu=0;
+    }
 
     return venceu;
 }
@@ -153,7 +159,8 @@ void jogo(){
 
         exibeLetrasUsadas(letrasUsadas);
         exibeForca(vidas);
-        venceu=verificaPalavra(palavra,letrasUsadas);
+        verificaPalavra(palavra,letrasUsadas);
+        venceu=vencedor(palavra,letrasUsadas);
 
         if(venceu){
             printf("\nParabens! Voce adivinhou a palavra!\n");
