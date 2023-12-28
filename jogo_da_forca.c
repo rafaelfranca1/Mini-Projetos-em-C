@@ -170,10 +170,22 @@ void jogo(){
             printf("\nInfelizmente, voce perdeu! Tente novamente.\n");
             break;
         }
+        
+        do{
+            printf("\nDigite uma letra: ");
+            scanf(" %c", &letra);
+            letra=toupper(letra);
+            if(!isalpha(letra)) {
+                system("cls");
+                printf("\n=== JOGO DA FORCA ===\n");
+                printf("\nTEMA: %s", tema);
 
-        printf("\nDigite uma letra: ");
-        scanf(" %c", &letra);
-        letra=toupper(letra);
+                exibeLetrasUsadas(letrasUsadas);
+                exibeForca(vidas);
+                verificaPalavra(palavra,letrasUsadas);
+                printf("\nApenas letras!");
+            }
+        }while(!isalpha(letra));
 
         letrasUsadas[j++]=letra;
         letrasUsadas[j]='\0';
